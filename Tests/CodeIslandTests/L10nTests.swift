@@ -126,4 +126,15 @@ final class L10nTests: XCTestCase {
         let formattedUpdate = String(format: updateAvailable, "1.0.19", "1.0.18")
         XCTAssertEqual(formattedUpdate, "CodeIsland 1.0.19 が利用可能です (現在: 1.0.18)。ダウンロードしますか？")
     }
+
+    func testAboutDescriptionSupportsDynamicToolCountAcrossLanguages() {
+        let count = ConfigInstaller.officialSupportedToolCount
+        let languages = ["en", "zh", "ja", "ko", "tr"]
+
+        for language in languages {
+            L10n.shared.language = language
+            let formatted = String(format: L10n.shared["about_desc2"], count)
+            XCTAssertTrue(formatted.contains("\(count)"), "Language '\(language)' should render the dynamic tool count")
+        }
+    }
 }

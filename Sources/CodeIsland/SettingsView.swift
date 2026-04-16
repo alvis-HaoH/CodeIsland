@@ -1143,7 +1143,7 @@ private struct AboutPage: View {
                     Text(l10n["about_desc1"])
                         .font(.system(size: 12))
                         .foregroundStyle(.tertiary)
-                    Text(l10n["about_desc2"])
+                    Text(String(format: l10n["about_desc2"], ConfigInstaller.officialSupportedToolCount))
                         .font(.system(size: 12))
                         .foregroundStyle(.tertiary)
                 }

@@ -103,6 +103,24 @@ struct ConfigInstaller {
 
     // MARK: - All supported CLIs
 
+    /// Official tools counted in user-facing product copy such as the About page and README.
+    /// Keep this list aligned with externally advertised support, excluding custom CLIs.
+    static let officialSupportedToolSources: [String] = [
+        "claude",
+        "codex",
+        "gemini",
+        "cursor",
+        "copilot",
+        "traecli",
+        "qoder",
+        "droid",
+        "codebuddy",
+        "opencode",
+        "kimi",
+    ]
+
+    static var officialSupportedToolCount: Int { officialSupportedToolSources.count }
+
     private static let builtInCLIs: [CLIConfig] = [
         // Claude Code — uses hook script (with bridge dispatcher + nc fallback)
         CLIConfig(

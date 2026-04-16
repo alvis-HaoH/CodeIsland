@@ -3,6 +3,14 @@ import XCTest
 import CodeIslandCore
 
 final class ConfigInstallerTests: XCTestCase {
+    func testOfficialSupportedToolCountMatchesAboutCopyList() {
+        XCTAssertEqual(ConfigInstaller.officialSupportedToolCount, 11)
+        XCTAssertEqual(
+            ConfigInstaller.officialSupportedToolSources,
+            ["claude", "codex", "gemini", "cursor", "copilot", "traecli", "qoder", "droid", "codebuddy", "opencode", "kimi"]
+        )
+    }
+
     func testRemoveManagedHookEntriesAlsoPrunesLegacyVibeIslandHooks() throws {
         let hooks: [String: Any] = [
             "SessionEnd": [
